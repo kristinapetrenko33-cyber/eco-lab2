@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+# 🚦 Лабораторна робота №2 — SPA "Станції моніторингу довкілля" (React + Node.js + MongoDB)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Автор:** Петренко К.Ю. 
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📌 Опис проекту
 
-### `npm start`
+Ця лабораторна робота реалізує повноцінний CRUD-додаток для керування екологічними станціями та їх вимірюваннями.  
+Проект складається з:
+- **Backend (Node.js, Express, MongoDB):** REST API для зберігання даних станцій.
+- **Frontend (React):** SPA для взаємодії з API (створення, перегляд, редагування, видалення станцій з можливістю перегляду і додавання конкретних значень вимірювань).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 💡 Основний функціонал
 
-### `npm test`
+- Додавання станції з конкретними вимірюваннями (PM2.5, PM10, Temperature, Humidity, NO2)
+- Перегляд списку станцій у таблиці
+- Редагування та видалення станцій
+- Перегляд **конкретних значень вимірювань** для кожної станції (через кнопку “Дивитись вимірювання”)
+- CRUD API (REST)
+- Валідований ввід (обов’язкові поля, перевірка типів)
+- Односторінковий додаток на React
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🛠️ API (backend) — основні ендпоїнти
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Метод  | URL                | Опис                  |
+|--------|--------------------|-----------------------|
+| GET    | /api/stations      | Список станцій        |
+| GET    | /api/stations/:id  | Детальна інформація   |
+| POST   | /api/stations      | Створити станцію      |
+| PUT    | /api/stations/:id  | Оновити дані станції  |
+| DELETE | /api/stations/:id  | Видалити станцію      |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 👩‍💻 Інтерфейс (frontend)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **App.js:** логіка додатку, форма додавання/редагування станцій
+- **DataTable.js:** таблиця, кнопки дій, перегляд вимірювань
+- **App.css:** стильова обробка
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Ключові моменти:**
+- Для кожної вибраної метрики є поле для вводу її значення.
+- Перегляд вимірювань доступний у таблиці за допомогою кнопки.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📚 Як користуватись
 
-## Learn More
+1. Додавайте станції через форму: заповніть дані, виберіть, які типи вимірювань доступні, і вкажіть їх значення.
+2. Таблиця покаже всі додані станції; кожну можна редагувати/видалити.
+3. Для детального перегляду вимірювань — натисніть "Дивитись вимірювання".
+4. Всі зміни одразу синхронізуються з MongoDB.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 💬 FAQ
 
-### Code Splitting
+- **Що робити, якщо немає MongoDB?**
+  - Встановіть [MongoDB Community](https://www.mongodb.com/try/download/community) локально або використовуйте [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
+- **Чому вимірювання не зберігаються?**
+  - Переконайтесь, що поле measurement_values є у Station.js і правильно передається у POST/PUT запитах!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 📝 Технології
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Node.js + Express
+- MongoDB + Mongoose
+- React (+ hooks, props, state management)
+- REST API
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🏆 Авторські особливості
 
-### Advanced Configuration
+- Гарний UI для форм та таблиць
+- Повна підтримка CRUD та перегляду значень вимірювань
+- Валідований бекенд (усі required-поля)
+- Код структурується згідно best practices
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
